@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import CountContext from "./context/CountContext";
 
 function App() {
 
@@ -7,24 +8,27 @@ function App() {
   return (
     <>
     <div>
-        <Parent count={count} setCount={setCount}></Parent>
+        <CountContext.Provider value={count}>
+          <Parent setCount={setCount}></Parent>
+        </CountContext.Provider>
     </div>
     </>
   )
 }
 
-function Parent({count,setCount}) {
+function Parent({setCount}) {
   return(
     <div>
-      <Child1 count={count}></Child1>
+      <Child1></Child1>
       <Child2 setCount={setCount}></Child2>
     </div>
   )
 }
 
-function Child1(props) {
+function Child1() {
+  const count = useContext(CountContext);
   return (
-    <div>{props.count}</div>
+    <div>{count}</div>
   ) 
 }
 
