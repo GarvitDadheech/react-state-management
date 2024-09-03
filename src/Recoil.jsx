@@ -33,14 +33,15 @@ function Child1() {
 }
 
 function Child2() {
-  const [count,setCount] = useRecoilState(countAtom);
-  const handleDecrement = useCallback(() => {
+  const setCount = useSetRecoilState(countAtom);
+  console.log("Button re-rendered!");
+  const handleDecrement = (() => {
     setCount(count => count-1)
-  },[count]);
+  });
 
-  const handleIncrement = useCallback(() => {
+  const handleIncrement = (() => {
     setCount(count => count+1)
-  },[count]);
+  });
 
   return (
     <div>
