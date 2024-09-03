@@ -8,32 +8,32 @@ function App() {
   return (
     <>
     <div>
-        <CountContext.Provider value={count}>
-          <Parent setCount={setCount}></Parent>
+        <CountContext.Provider value={{count,setCount}}>
+          <Parent></Parent>
         </CountContext.Provider>
     </div>
     </>
   )
 }
 
-function Parent({setCount}) {
+function Parent() {
   return(
     <div>
       <Child1></Child1>
-      <Child2 setCount={setCount}></Child2>
+      <Child2></Child2>
     </div>
   )
 }
 
 function Child1() {
-  const count = useContext(CountContext);
+  const {count} = useContext(CountContext);
   return (
     <div>{count}</div>
   ) 
 }
 
-function Child2({setCount}) {
-
+function Child2() {
+  const {setCount} = useContext(CountContext);
   function handleDecrement() {
     setCount(count => count-1)
   }
