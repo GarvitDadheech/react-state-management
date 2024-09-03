@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react"
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { countAtom } from "./store/atoms/CountAtom";
+import { EvenSelector } from "./store/selectors/EvenSelector";
 
 function Recoil() {
 
@@ -28,8 +29,21 @@ function Parent() {
 function Child1() {
     const count = useRecoilValue(countAtom);
   return (
-    <div>{count}</div>
+    <div>
+      {count}
+      <EvenCountRenderer/>
+    </div>
   ) 
+}
+
+function EvenCountRenderer() {
+  const isEven = useRecoilValue(EvenSelector);
+  return(
+    <div>
+      {isEven ? "It is even" : null}
+    </div>
+  )
+  
 }
 
 function Child2() {
