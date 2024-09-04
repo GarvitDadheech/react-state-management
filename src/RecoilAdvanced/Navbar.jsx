@@ -1,5 +1,6 @@
 import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
 import { jobsAtom, messagingAtom, myNetworkAtom, notificationAtom } from "./atoms";
+import { allnotificationSelector } from "./selectors";
 
 function Navbar() {
     return(
@@ -14,7 +15,7 @@ function NavigationButtons() {
     const jobsCount = useRecoilValue(jobsAtom);
     const messagingCount = useRecoilValue(messagingAtom);
     const [notificationCount,setnotificationCount] = useRecoilState(notificationAtom);
-
+    const allnotificationCount = useRecoilValue(allnotificationSelector);
     function notificationClickHandler() {
         setnotificationCount(c => c+1);
     }
@@ -27,6 +28,7 @@ function NavigationButtons() {
             <button>Messaging ({messagingCount})</button>
             <button onClick={notificationClickHandler}>Notifications ({notificationCount})</button>
             <button>Me</button>
+            <div>Sum of all notifications is {allnotificationCount}</div>
         </div>
     )
 }
