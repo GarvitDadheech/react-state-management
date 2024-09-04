@@ -39,7 +39,11 @@ export const notifications = atom({
 export const todosAtomFamily = atomFamily({
     key: "todosAtomFamily",
     default: (id) => {
-        return todoList.find(x => x.id === id)
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(todoList.find(x => x.id === id));
+            }, 5000);
+        });
     }
 })
 
