@@ -1,6 +1,7 @@
 import ContextApi from "./ContextApi";
 import Recoil from "./Recoil";
 import NavBar from "./RecoilAdvanced/Navbar";
+import Todos from "./RecoilAdvanced/Todos";
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
     <>
     {/* <ContextApi/> */}
     {/* <Recoil/> */}
-    <NavBar/>
+    {/* <NavBar/> */}
+    <Todos/>
     </>
   )
 }

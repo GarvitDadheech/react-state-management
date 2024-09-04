@@ -1,4 +1,6 @@
-import { atom, selector,axios } from "recoil";
+import { atom, selector,atomFamily } from "recoil";
+import { todoList } from "./todoList";
+import axios from "axios";
 
 export const myNetworkAtom = atom({
     key: "myNetworkAtom",
@@ -31,4 +33,12 @@ export const notifications = atom({
             return res.data;
         }
     })
+})
+
+
+export const todosAtomFamily = atomFamily({
+    key: "todosAtomFamily",
+    default: (id) => {
+        return todoList.find(x => x.id === id)
+    }
 })
