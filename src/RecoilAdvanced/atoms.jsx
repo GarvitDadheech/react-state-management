@@ -1,4 +1,4 @@
-import { atom, selector,atomFamily } from "recoil";
+import { atom, selector,atomFamily, selectorFamily } from "recoil";
 import { todoList } from "./todoList";
 import axios from "axios";
 
@@ -41,4 +41,17 @@ export const todosAtomFamily = atomFamily({
     default: (id) => {
         return todoList.find(x => x.id === id)
     }
+})
+
+export const todosAtomFamilyWithFetch = atomFamily({
+    key: "todosAtomFamilyWithFetch",
+    default: selectorFamily({
+        key: "todosAtomFamSelectorwithFetch",
+        get: (id) => async ({get}) => {
+            //hit the backend api here
+            const backendapi = ""
+            const res = await axios.get(backendapi`${id}`);
+            return res.data;
+        }
+    })
 })
