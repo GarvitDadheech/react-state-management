@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, selector,axios } from "recoil";
 
 export const myNetworkAtom = atom({
     key: "myNetworkAtom",
@@ -18,4 +18,17 @@ export const messagingAtom = atom({
 export const notificationAtom = atom({
     key: "notificationAtom",
     default: 25
+})
+
+export const notifications = atom({
+    key: "notifications",
+    default: selector({
+        key: "notificSelector",
+        get: async () => {
+            //hit the backend api here;
+            const backendapi = "";
+            const res = await axios.get(backendapi);
+            return res.data;
+        }
+    })
 })
