@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react"
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { countAtom } from "./store/atoms/CountAtom";
-import { EvenSelector } from "./store/selectors/EvenSelector";
+import { countAtom } from "../store/atoms/CountAtom";
+import { EvenSelector } from "../store/selectors/EvenSelector";
 
 function Recoil() {
 

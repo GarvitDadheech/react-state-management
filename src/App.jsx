@@ -1,5 +1,5 @@
 import ContextApi from "./ContextApi";
-import Recoil from "./Recoil";
+import Recoil from "./RecoilBasics/Recoil";
 import NavBar from "./RecoilAdvanced/Navbar";
 import Todos from "./RecoilAdvanced/Todos";
 
@@ -11,7 +11,7 @@ function App() {
     {/* <ContextApi/> */}
     {/* <Recoil/> */}
     {/* <NavBar/> */}
-    <Todos/>
+    {/* <Todos/> */}
     </>
   )
 }

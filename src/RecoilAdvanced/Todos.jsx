@@ -1,6 +1,6 @@
 import { RecoilRoot, useRecoilValue, useRecoilValueLoadable } from "recoil"
 import { todosAtomFamily } from "./atoms"
-import Recoil from "../Recoil";
+import Recoil from "../RecoilBasics/Recoil";
 
 function Todos() {
     return (
@@ -39,6 +39,5 @@ function Todo({id}) {
         )
     }
 }
-
 
 export default Todos
