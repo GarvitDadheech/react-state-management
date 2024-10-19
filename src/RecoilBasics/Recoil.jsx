@@ -19,6 +19,7 @@ function Parent() {
   return(
     <div>
         <RecoilRoot>
+          
             <Child1></Child1>
             <Child2></Child2>
         </RecoilRoot>
